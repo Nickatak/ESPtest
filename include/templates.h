@@ -3,32 +3,29 @@
 
 #include "utils.h"
 
-
-extern const String index_template = 
-    "<!DOCTYPE html"
-    "<html>"
-    "   <head>"
-    "       <title>Home page template!</title>"
-    "   </head>"
-    "   <body>"
-    "       <p>\"Home page for the ESP8266\"</p>"
-    "   </body>"
-    "</html>";
-
-extern const String form_template = 
-    "<!DOCTYPE html"
-    "<html>"
-    "   <head>"
-    "       <title>Form template!</title>"
-    "   </head>"
-    "   <body>"
-    "       <form action=\"post_route\" method=\"post\">"
-    "       <label>Input 1:</label><input type=\"text\" name=\"input_1\"></input><br>"
-    "       <label>Input 2:</label><input type=\"text\" name=\"input_2\"></input><br>"
-    "       <input type=\"submit\">Traditional send!</input>"
-    "       <button id=\"test-js\">JS send!</input>"
-    "       </form>"
-    "   </body>"
-    "</html>";
-
+extern const String form_template =
+"<!DOCTYPE html>"
+"<html>"
+"    <head>"
+"        <title>Form page</title>"
+"    </head>"
+"    <body>"
+"        <form action=\"/post_route\" method=\"POST\">"
+"            <label for=\"input_1\">Input 1:</label><input type=\"text\" name=\"input_1\"><br>"
+"            <label for=\"input_1\">Input 1:</label><input type=\"text\" name=\"input_1\"><br>"
+"            <button type=\"submit\">Send the normal way!</button>"
+"            <button id=\"test-js\">Send with AJAX!</button>"
+"        </form>"
+"    </body>"
+"</html>";
+extern const String index_template =
+"<!DOCTYPE html>"
+"<html>"
+"    <head>"
+"        <title>ESP8266 Homepage</title>"
+"    </head>"
+"    <body>"
+"        <h1>ESP8266 HOMEPAGE!</h1>"
+"    </body>"
+"</html>";
 #endif
