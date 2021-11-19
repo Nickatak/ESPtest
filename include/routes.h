@@ -2,9 +2,11 @@
 #define ROUTES_H
 
 #include "utils.h"
-#include <vector>
 
-void handle_index();
+void render_index();
+void render_form();
+void handle_post();
+
 void handle_not_found();
 
 #endif

@@ -28,7 +28,8 @@ void startWifi() {
 
 void startServer() {
     std::vector<route> route_list {
-        route{ "/", &handle_index }
+        route{ "/", &render_index },
+        route{ "/form", &render_form },
     };
 
     for (auto route_obj : route_list) {
