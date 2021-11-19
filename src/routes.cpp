@@ -14,7 +14,7 @@ void render_form() {
 
 void handle_post() {
     if (server->method() == HTTP_POST) {
-        // Response is Arduino-String.
+        // Response is Arduino-String.  While I can make this a one-liner, I'd rather leave it explicitly written out so we can see the cast-type chain.
         String temp_1 = server->arg("plain");
         // Now to C string.
         const char *temp_2 = temp_1.c_str();
@@ -22,8 +22,17 @@ void handle_post() {
         std::string sdata = temp_2;
 
         // Okay, now we can do some parsing, let's goooooo.
+        std::map<std::string, std::string> data = parse_body(sdata);
 
+        // This time during the print out, we'll do all the conversions inline.
+        Serial.print("RECVD 1: ");
+        Serial.println(String(data["input_1"].c_str()));
+        Serial.print("RECVD 2: ");
+        Serial.println(String(data["input_2"].c_str()));
 
+        // Redirect to /form.
+        server->sendHeader("Location", "/form");
+        server->send(302, "text/plain", "");
     }
     else {
         // Redirect to /form.
