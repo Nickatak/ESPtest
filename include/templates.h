@@ -31,7 +31,7 @@ extern const String form_template =
 "                            \"Content-Type\": \"application/x-www-form-urlencoded;charset=UTF-8\""
 "                        },"
 "                        \"body\": data"
-"                    })"
+"                    });"
 "                });"
 "            });"
 "        </script>"

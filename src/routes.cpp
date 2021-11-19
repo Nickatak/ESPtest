@@ -30,6 +30,14 @@ void handle_post() {
         Serial.print("RECVD 2: ");
         Serial.println(String(data["input_2"].c_str()));
 
+        if (data["input_1"].length()) {
+            lcd->clear();
+            lcd->print(data["input_1"].c_str());
+        }
+        else {
+            lcd->print(data["input_2"].c_str());
+        }
+
         // Redirect to /form.
         server->sendHeader("Location", "/form");
         server->send(302, "text/plain", "");

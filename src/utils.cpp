@@ -3,6 +3,7 @@
 
 
 ESP8266WebServer *server = new ESP8266WebServer(80);
+LiquidCrystal_I2C *lcd = new LiquidCrystal_I2C(0x27, 16, 2);
 
 std::map<std::string, std::string> parse_body(std::string sbody) {
     // Splits "blah1=val1&blah2=val2" => ["blah1=val1", "blah2=val2"]
@@ -66,3 +67,10 @@ void startServer() {
     server->begin();
     Serial.println("HTTP server started");
 };
+
+void startLCD() {
+    lcd->init();
+    lcd->clear();
+    lcd->backlight();
+    lcd->setCursor(0, 0);
+}
